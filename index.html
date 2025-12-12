@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewy dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="snow-container"></div>
+
+    <header class="hero">
+        <div class="content">
+            <h1>🧑‍💻 Üdvözöllek az oldalamon,�</h1>
+            <p class="subtitle">Bevezetés</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about">
+            <h2>Rólam</h2>
+            <div class="card skill-card">
+                <p>Sziasztok! **14 éves** **Discord Fejlesztő** és **Roblox Scripter** vagyok, szenvedéllyel a kreatív programozás iránt.</p>
+                <p>Célom, hogy minőségi és egyedi projekteket hozzak létre. Mindig nyitott vagyok az új kihívásokra és a tanulásra!</p>
+                <a href="https://dewy.fejlessz.hu" target="_blank" class="button primary-button">dewy.fejlessz.hu</a>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Képességeim és Tudásom</h2>
+            <div class="skill-grid">
+                <div class="card skill-card">
+                    <h3>Discord Fejlesztés 🤖</h3>
+                    <p>Fejlett **Discord botokat** készítek Pythonban (vagy más nyelven), egyedi funkciókkal és stabil működéssel.</p>
+                </div>
+                <div class="card skill-card">
+                    <h3>Roblox Scripter 🎮</h3>
+                    <p>**Roblox játékokhoz** írok **Lua** szkripteket, életre keltve a játékmechanikákat, felhasználói felületeket és játékélményeket.</p>
+                </div>
+                <div class="card skill-card">
+                    <h3>Kezdő HTML 🌐</h3>
+                    <p>Ismerem a **HTML** alapjait, a weboldalak szerkezetét és az elemek megfelelő használatát. Jelenleg is fejlesztem tudásom!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact">
+            <h2>Kapcsolat</h2>
+            <p>Elérhetsz engem Discordon (név: **Dewy**), vagy a saját weboldalamon keresztül.</p>
+            <p class="discord-tag">Discord: **Dewy#0000** (Példa)</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Dewy. Készült a karácsony szellemében. 🎄</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const snowContainer = document.querySelector('.snow-container');
+            const numberOfSnowflakes = 50; // Hány hópihe legyen
+            
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                
+                // Véletlenszerű pozíció és méret
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.width = `${Math.random() * 5 + 5}px`;
+                snowflake.style.height = snowflake.style.width;
+                
+                // Véletlenszerű animációs idő (a sebességhez)
+                snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                snowContainer.appendChild(snowflake);
+            }
+        });
+    </script>
+</body>
+</html>
