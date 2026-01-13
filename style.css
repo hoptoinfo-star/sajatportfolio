@@ -71,7 +71,6 @@ h2 {
     background-color: var(--button-hover);
 }
 
-/* Hardver progress bar */
 .progress-bar {
     background: #334155;
     border-radius: 10px;
