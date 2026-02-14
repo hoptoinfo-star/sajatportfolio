@@ -3,172 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólió - Gergő</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f1f5f9;
-            --accent-color: #38bdf8;
-            --button-hover: #0ea5e9;
-            --gap: 20px;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        h2 {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--card-bg);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            font-size: 1.8rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: var(--gap);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--gap);
-        }
-
-        .greeting {
-            font-weight: bold;
-            text-align: center;
-            color: #fbbf24;
-            font-size: 1.2rem;
-            margin: 0;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #0f172a;
-            padding: 14px 28px;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .button:hover {
-            background-color: var(--button-hover);
-            transform: scale(1.02);
-        }
-
-        /* Haladási sáv a Hardverhez */
-        .progress-container {
-            margin-top: 15px;
-        }
-
-        .progress-bar {
-            background: #334155;
-            border-radius: 20px;
-            height: 12px;
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 5px;
-        }
-
-        .progress {
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            height: 100%;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        }
-
-        h3 {
-            margin-top: 0;
-            color: #fff;
-        }
-
-        strong {
-            color: var(--accent-color);
-        }
-
-        @media (max-width: 600px) {
-            body { padding: 10px; }
-            h2 { font-size: 1.5rem; }
-        }
-    </style>
+    <title>Valentin-nap 2026 - Gergő</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="container">
-        <section class="about">
-            <h2>Portfólió - Gergő</h2>
-            
-            <div class="card">
-                <p class="greeting">🎄 Kellemes ünnepeket, és Boldog Karácsonyt/Újévet! 🎆</p>
-            </div>
+    <div class="bg-heart" style="left: 5%; font-size: 20px; animation-duration: 12s;">❤</div>
+    <div class="bg-heart" style="left: 25%; font-size: 40px; animation-duration: 18s;">❤</div>
+    <div class="bg-heart" style="left: 55%; font-size: 25px; animation-duration: 15s;">❤</div>
+    <div class="bg-heart" style="left: 85%; font-size: 35px; animation-duration: 22s;">❤</div>
 
-            <div class="card">
-                <p>Sziasztok! <strong>Gergő</strong> vagyok, 14 éves fejlesztő. Az elmúlt egy évben mélyebben beleástam magam a számítógépek felépítésébe (hardver) és az alapvető működési elveikbe.</p>
-                <p>A szoftverfejlesztés mellett a technikai háttér is érdekel: legyen szó játékszerver hosztolásáról.</p>
-                <a href="https://play.dewyofficial.hu" target="_blank" class="button">play.dewyofficial.hu - Hamarosan nyíló Minecraft SMP-m</a>
+    <main class="container">
+        <section class="glass-card">
+            <h1 class="greeting-text">Boldog Valentin Napot!</h1>
+            <p class="sub-text">Portfólió | Gergő</p>
+            
+            <div class="bio-content">
+                <p>Sziasztok! <strong>Gergő</strong> vagyok, 14 éves fejlesztő. Érdekelnek az online rendszerek és működések.</p>
+                <a href="https://play.dewyofficial.hu" target="_blank" class="button">Csatlakozz a Minecraft SMP-mhez</a>
             </div>
         </section>
 
-        <section class="skills">
-            <h2>Képességeim és Tudásom</h2>
-            <div class="skill-grid">
-                
-                <div class="card skill-card">
-                    <h3>Hardver és Gép alapjai 🖥️</h3>
-                    <p>Egy éve tanulom a gép építését. Célom a 100% önállóság.</p>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 50%;"></div>
-                        </div>
-                        <small>Készültség: 50% (CPU, RAM, Alaplap megvan)</small>
-                    </div>
-                </div>
+        <section class="skill-grid">
+            <div class="skill-item">
+                <h3>Hardver 🖥️</h3>
+                <p>Gépépítés és alkatrész ismeret egy éve.</p>
+                <div class="progress-bar"><div class="progress"></div></div>
+            </div>
 
-                <div class="card skill-card">
-                    <h3>Szerverüzemeltetés 🚀</h3>
-                    <p>Aktívan tanulom a játékos szerverhosztingokat, azon belül a <strong>Pterodactyl</strong> panelt és a <strong>VPS</strong> kezelést.</p>
-                </div>
+            <div class="skill-item">
+                <h3>Szerverek 🚀</h3>
+                <p>VPS kezelés és Pterodactyl panel üzemeltetés.</p>
+            </div>
 
-                <div class="card skill-card">
-                    <h3>Discord Fejlesztés 🤖</h3>
-                    <p>Discord szerverek építésében és botok fejlesztésében van tapasztalatom.</p>
-                </div>
+            <div class="skill-item">
+                <h3>Discord 🤖</h3>
+                <p>Bot fejlesztés és közösségépítés profi szinten.</p>
+            </div>
 
-                <div class="card skill-card">
-                    <h3>Roblox Scripter 🎮</h3>
-                    <p>Sokat foglalkozok Roblox scriptekkel, mivel a Luau egy kiváló kódnyelv a tanuláshoz.</p>
-                </div>
-
+            <div class="skill-item">
+                <h3>Roblox 🎮</h3>
+                <p>Scriptelés és játékmechanikák Luau nyelven.</p>
             </div>
         </section>
     </main>
