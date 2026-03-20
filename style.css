@@ -1,158 +1,170 @@
 :root {
-    --accent-color: #00f2ff; /* Neon türkiz */
-    --accent-dark: #006a70;
-    --dark-bg: #050a10;
-    --glass-bg: rgba(10, 20, 30, 0.6);
-    --glass-border: rgba(0, 242, 255, 0.2);
-    --text-main: #e0faff;
-    --text-dim: #8da2a6;
+    --bg-color: #080808;
+    --card-bg: #111111;
+    --accent: #00ff9d; /* Neon zöld/türkiz */
+    --text: #e0e0e0;
+    --text-dim: #777;
+    --border: #222;
 }
 
 body {
-    background-color: var(--dark-bg);
-    color: var(--text-main);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     margin: 0;
-    padding: 0;
+    line-height: 1.6;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
 }
 
-/* Animált Grid háttér textura */
-.grid-background {
+/* Scanline / Digitális textura effekt */
+.bg-scanline {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(var(--glass-border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: center center;
-    perspective: 500px;
-    z-index: -1;
-    transform: rotateX(20deg);
-    animation: moveGrid 10s linear infinite;
-}
-
-@keyframes moveGrid {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 50px; }
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .container {
-    max-width: 950px;
+    max-width: 800px;
     width: 90%;
-    margin: 60px 0;
-    z-index: 1;
+    padding: 80px 0;
 }
 
-/* Modern Glassmorphism */
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 50px 30px;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
-    margin-bottom: 40px;
+/* Hero szekció */
+.hero {
+    margin-bottom: 60px;
 }
 
-.greeting-text {
-    font-size: clamp(2rem, 7vw, 3.5rem);
-    font-weight: 900;
-    background: linear-gradient(to right, #ffffff, var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.status-badge {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-size: 4rem;
     margin: 0;
-    letter-spacing: -1px;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
-.sub-text {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-top: 10px;
+.dot { color: var(--accent); }
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin-top: 5px;
 }
 
-.bio-content {
-    margin-top: 30px;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.learning-badge {
-    background: rgba(0, 242, 255, 0.1);
-    border: 1px dashed var(--accent-color);
-    border-radius: 15px;
-    padding: 15px;
+.intro-box {
     margin-top: 25px;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+    color: var(--text-dim);
 }
 
-.learning-badge span {
+/* Aktuális tanulás kártya */
+.section-label {
     font-size: 0.8rem;
-    color: var(--accent-color);
     text-transform: uppercase;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.learning-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.icon-3d {
+    background: var(--accent);
+    color: #000;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.learning-info h3 { margin: 0; font-size: 1.1rem; }
+.learning-info p { margin: 5px 0; color: var(--text-dim); }
+
+.status-tag {
+    font-size: 0.7rem;
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--accent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+}
+
+/* Grid rendszer a skilleknek */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.card-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: monospace;
+    color: #222;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-.learning-badge p {
-    margin: 5px 0 0 0;
-    font-size: 1.1rem;
-}
-
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-.skill-item {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 25px;
-    transition: all 0.3s ease-in-out;
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);
-}
-
-.skill-item h3 {
-    color: var(--accent-color);
+.card h3 {
     margin-top: 0;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
+    font-size: 1.1rem;
+    color: var(--accent);
 }
 
-.progress-bar {
-    background: rgba(255,255,255,0.05);
-    height: 4px;
-    border-radius: 10px;
-    margin-top: 15px;
-    overflow: hidden;
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 0;
 }
 
-.progress {
-    background: var(--accent-color);
-    height: 100%;
-    box-shadow: 0 0 10px var(--accent-color);
+.footer {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #333;
 }
 
 @media (max-width: 600px) {
-    .container { margin: 20px 0; }
-    .glass-card { padding: 30px 15px; }
+    .main-title { font-size: 2.5rem; }
+    .learning-card { flex-direction: column; text-align: center; }
 }
