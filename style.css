@@ -2,11 +2,15 @@
 
 :root {
     --neon: #00f2ff;
+    --neon-muted: rgba(0, 242, 255, 0.2);
     --dark: #050505;
     --card: #0d0d0d;
     --border: #1a1a1a;
     --text: #c0c0c0;
+    --glitch-speed: 3s;
 }
+
+* { box-sizing: border-box; }
 
 body {
     background-color: var(--dark);
@@ -16,165 +20,221 @@ body {
     overflow-x: hidden;
     display: flex;
     justify-content: center;
+    line-height: 1.6;
 }
 
-/* Képcsöves monitor effekt */
+/* CRT Effekt */
 .scanlines {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
     background-size: 100% 4px;
     z-index: 100;
     pointer-events: none;
+    opacity: 0.6;
 }
 
 .vignette {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, transparent 50%, black 150%);
+    background: radial-gradient(circle, transparent 40%, black 150%);
     z-index: 101;
     pointer-events: none;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     width: 90%;
-    padding: 100px 0;
+    padding: 80px 0;
     z-index: 2;
 }
 
-/* Glitch Effekt a névnek */
+/* Real Glitch Effect */
 .glitch {
     font-family: 'Syncopate', sans-serif;
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(2rem, 10vw, 4.5rem);
     font-weight: 700;
-    letter-spacing: 10px;
+    letter-spacing: 12px;
     color: white;
     position: relative;
-    text-shadow: 2px 0 var(--neon);
+    text-transform: uppercase;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--neon);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 20px, 0); }
+    20% { clip: rect(80px, 9999px, 90px, 0); }
+    100% { clip: rect(40px, 9999px, 50px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(60px, 9999px, 70px, 0); }
+    30% { clip: rect(10px, 9999px, 20px, 0); }
+    100% { clip: rect(90px, 9999px, 100px, 0); }
 }
 
 .system-status {
     color: var(--neon);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    margin-top: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-top: 15px;
+    opacity: 0.8;
 }
 
-/* Bio és Link */
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+/* Bio Section */
 .bio-section {
-    margin: 50px 0;
+    margin: 60px 0;
     font-size: 1.1rem;
-    line-height: 1.8;
+    max-width: 700px;
+    border-left: 2px solid var(--border);
+    padding-left: 20px;
 }
 
 .social-link {
     display: inline-block;
-    background: var(--card);
-    border: 1px solid var(--neon);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--neon-muted);
     color: white;
     text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 4px;
-    margin-top: 20px;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+    padding: 15px 30px;
+    margin-top: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
 }
 
 .social-link:hover {
     background: var(--neon);
     color: black;
-    box-shadow: 0 0 30px var(--neon);
+    box-shadow: 0 0 40px var(--neon-muted);
+    transform: translateY(-3px) scale(1.02);
+    border-color: var(--neon);
 }
 
-.link-label {
-    color: var(--neon);
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.social-link:hover .link-label { color: black; }
-
-/* Aktuális tanulás doboz */
+/* Focus Box */
 .focus-area {
-    background: var(--card);
+    background: linear-gradient(90deg, #0d0d0d 0%, #050505 100%);
+    border: 1px solid var(--border);
     border-left: 4px solid var(--neon);
-    padding: 30px;
-    margin-bottom: 60px;
+    padding: 35px;
+    margin-bottom: 70px;
+    position: relative;
+    overflow: hidden;
 }
 
-.focus-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+.focus-area::after {
+    content: "SYSTEM_CORE";
+    position: absolute;
+    right: -10px; bottom: -10px;
+    font-size: 4rem;
+    opacity: 0.03;
+    font-weight: 800;
 }
 
 .pulse-dot {
-    width: 10px; height: 10px;
+    display: inline-block;
+    width: 12px; height: 12px;
     background: var(--neon);
     border-radius: 50%;
-    animation: pulse 1.5s infinite;
+    margin-right: 15px;
+    box-shadow: 0 0 10px var(--neon);
+    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(2.5); opacity: 0; }
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 242, 255, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
 }
 
 .loading-bar {
-    background: #1a1a1a;
-    height: 8px;
-    margin: 20px 0 10px;
+    background: #111;
+    height: 4px;
+    margin: 25px 0 10px;
+    border-radius: 2px;
 }
 
 .loading-progress {
     background: var(--neon);
     width: 35%;
     height: 100%;
-    box-shadow: 0 0 15px var(--neon);
+    box-shadow: 0 0 20px var(--neon);
+    position: relative;
 }
 
-.loading-text { font-size: 0.7rem; color: #555; }
-
-/* Skillek rácsban */
+/* Tech Cards */
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
 }
 
 .tech-card {
+    background: rgba(255, 255, 255, 0.01);
     border: 1px solid var(--border);
-    padding: 30px;
-    transition: 0.3s;
+    padding: 35px;
+    transition: 0.4s ease;
+    position: relative;
 }
 
 .tech-card:hover {
-    border-color: var(--neon);
-    background: rgba(0, 242, 255, 0.02);
+    border-color: var(--neon-muted);
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-5px);
 }
 
 .card-header {
     color: var(--neon);
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card-header::before {
+    content: "[ "; margin-right: 5px; opacity: 0.5;
+}
+.card-header::after {
+    content: " ]"; margin-left: 5px; opacity: 0.5;
 }
 
 .terminal-footer {
-    margin-top: 100px;
+    margin-top: 120px;
+    padding-bottom: 40px;
     text-align: center;
-    color: #333;
-    font-size: 0.8rem;
 }
 
-@media (max-width: 600px) {
-    .glitch { font-size: 2rem; }
+.terminal-end {
+    color: #444;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
 }
 
-    .main-title { font-size: 2.5rem; }
-    .learning-card { flex-direction: column; text-align: center; }
+/* Responsivity */
+@media (max-width: 768px) {
+    .container { padding: 40px 0; }
+    .glitch { letter-spacing: 6px; }
 }
