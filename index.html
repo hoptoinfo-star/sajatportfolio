@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gergő | Developer Portfolio</title>
+    <title>Gergő // Dev Log</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="grid-background"></div>
+    <div class="bg-scanline"></div>
 
     <main class="container">
-        <section class="glass-card">
-            <h1 class="greeting-text">Üdv a portfóliómban!</h1>
-            <p class="sub-text">Full-stack Developer | Gergő</p>
+        <header class="hero">
+            <div class="status-badge">ONLINE • ID: 2026_GERGO</div>
+            <h1 class="main-title">Gergő<span class="dot">.</span></h1>
+            <p class="tagline">Full-stack & Game Dev Enthusiast</p>
             
-            <div class="bio-content">
-                <p>Sziasztok! <strong>Gergő</strong> vagyok, egy 14 éves fejlesztő, aki imádja az online rendszerek és a modern technológiák világát.</p>
-                <div class="learning-badge">
-                    <span>Jelenleg tanulom:</span>
-                    <p>3D Játékfejlesztés (Unity & PlayCanvas) 🎮</p>
+            <div class="intro-box">
+                <p>14 éves vagyok, a rendszerek architektúrája és a logikai folyamatok érdekelnek. Jelenleg a 2D világából lépek át a 3D-be.</p>
+            </div>
+        </header>
+
+        <section class="now-learning">
+            <h2 class="section-label">Aktuális Projekt</h2>
+            <div class="learning-card">
+                <div class="icon-3d">3D</div>
+                <div class="learning-info">
+                    <h3>Game Dev Tanulmányok</h3>
+                    <p>Fókuszban: <strong>Unity</strong> & <strong>PlayCanvas</strong></p>
+                    <span class="status-tag">Kezdő fázis</span>
                 </div>
             </div>
         </section>
 
-        <section class="skill-grid">
-            <div class="skill-item">
-                <h3>Hardver 🖥️</h3>
-                <p>Gépépítés és alkatrész ismeret profi szinten.</p>
-                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+        <div class="grid-layout">
+            <div class="card">
+                <span class="card-num">01</span>
+                <h3>Infrastructure</h3>
+                <p>VPS menedzsment, Pterodactyl rendszerek és hálózati alapok.</p>
             </div>
 
-            <div class="skill-item">
-                <h3>Szerverek 🚀</h3>
-                <p>VPS kezelés és Pterodactyl panel üzemeltetés.</p>
-                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+            <div class="card">
+                <span class="card-num">02</span>
+                <h3>Automation</h3>
+                <p>Discord botok fejlesztése és komplex közösségi rendszerek építése.</p>
             </div>
 
-            <div class="skill-item">
-                <h3>Discord 🤖</h3>
-                <p>Bot fejlesztés és közösségépítés magas szinten.</p>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            <div class="card">
+                <span class="card-num">03</span>
+                <h3>Scripting</h3>
+                <p>Roblox (Luau) alapú játékmechanikák és logikai szkriptek.</p>
             </div>
 
-            <div class="skill-item">
-                <h3>Roblox & Luau 🎮</h3>
-                <p>Scriptelés és játékmechanikák fejlesztése.</p>
-                <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+            <div class="card">
+                <span class="card-num">04</span>
+                <h3>Hardware</h3>
+                <p>PC építés, konfigurálás és hardveres hibaelhárítás.</p>
             </div>
-        </section>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 dewy portfolio</p>
+        </footer>
     </main>
 
 </body>
